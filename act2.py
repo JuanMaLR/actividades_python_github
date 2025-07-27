@@ -236,20 +236,140 @@
 
 # 4. Serie Fibonacci
 # Escribe una función que devuelva los primeros n números de Fibonacci.
-def fibonacci(n):
-    if(n == 0):
-        return 
+
+# Normal
+# def fibonacci_normal(n):
+#     if n <= 0:
+#         print("No hay Fibonacci")
+#         return
+#     if n == 1:
+#         print(0)
     
-    if(n == 1):
+#     if n == 2: 
+#         print(0)
+#         print(1)
+    
+#     if n > 2:
+#         print(0)
+#         print(1)
+#         a = 0
+#         b = 1
+#         res = 0
+#         for i in range(2, n):
+#             res = a + b
+#             print(res)
+#             a = b
+#             b = res
+
+# List
+# def fibonacci_list(n):
+#     lista = []
+#     if n <= 0:
+#         return
+#     if n == 1:
+#         lista.append(0)
+    
+#     if n == 2: 
+#         lista.append(0)
+#         lista.append(1)
+    
+#     if n > 2:
+#         lista.append(0)
+#         lista.append(1)
+#         a = 0
+#         b = 1
+#         res = 0
+#         for i in range(2, n):
+#             res = a + b
+#             lista.append(res)
+#             a = b
+#             b = res
+
+#     return lista
+
+# Lista optimizada
+# def fibonacci_list_optimized(n):
+#     lista = []
+#     if n <= 0:
+#         return
+#     if n >= 1:
+#         lista.append(0)
+    
+#     if n >= 2: 
+#         lista.append(1)
+    
+#     if n > 2:
+#         a = 0
+#         b = 1
+#         res = 0
+#         i = 2
+#         while i < n:
+#             res = a + b
+#             lista.append(res)
+#             a = b
+#             b = res
+#             i += 1
+
+#     return lista
+
+# Lista optimizada 2
+# def fibonacci_list_optimized_2(n):
+#     lista = []
+#     if n <= 0:
+#         return
+
+#     a = 0
+#     b = 1    
+
+#     for num in range(n):
+#         lista.append(a)
+#         res = a + b
+#         a = b
+#         b = res
+
+#     return lista
+
+# Normal optimizado
+# def fibonacci_normal_optimizado(n):
+#     a = 0
+#     b = 1    
+
+#     for num in range(n):
+#         print(a)
+#         res = a + b
+#         a = b
+#         b = res
+
+# Normal optimizado versión Python
+def fibonacci_normal_optimizado_python(n):
+    a, b = 0, 1
+
+    for _ in range(n):
+        print(a)
+        a, b = b, a + b
+
+# Rescursivo
+def fibonacci_recursivo(n):
+    if n <= 0:
+        return
+    elif(n == 1):
         return 0
-    if(n == 2):
+    elif(n == 2):
         return 1
 
-    return fibonacci(n - 2) + fibonacci(n - 1)
+    return fibonacci_recursivo(n - 2) + fibonacci_recursivo(n - 1)
 
 print("4.4 Serie Fibonacci")
 n = int(input("Hasta qué número deseas calcular su Fibonacci?\n"))
-print(fibonacci(n))
+#fibonacci_normal(n)
+#print(f"Tu lista de fibonacci es: {fibonacci_list(n)}")
+#print(f"Tu lista de fibonacci es: {fibonacci_list_optimized(n)}")
+#print(f"Tu lista de fibonacci es: {fibonacci_list_optimized_2(n)}")
+#fibonacci_normal_optimizado(n)
+# Sin recursividad para encontrar toda la lista de números Fibonacci hasta n
+fibonacci_normal_optimizado_python(n)
+# Con recursividad para encontrar sólo el Fibonacci de n
+print(f"El valor Fibonacci de {n} es {fibonacci_recursivo(n)}")
 
 # # 5. Calculadora
 # # Función que reciba dos números y una operación (+, -, *, /) y devuelva el resultado.
